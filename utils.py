@@ -20,11 +20,9 @@ def get_posts_by_user(user_name):
     posts = get_posts_all()
     posts_user = []
     for post in posts:
-        if user_name.lower() not in post['poster_name']:
-            return "нет такого пользователя"
-        elif post['poster_name'].lower() == user_name.lower():
+        if post['poster_name'].lower() == user_name.lower():
             posts_user.append(post)
-        return posts_user
+    return posts_user
 
 
 def get_comments_by_post_id(post_id):
@@ -53,7 +51,7 @@ def search_for_posts(query):
     posts = get_posts_all()
     posts_query = []
     for post in posts:
-        if query in post:
+        if query in post['content']:
             posts_query.append(post)
     return posts_query
 
