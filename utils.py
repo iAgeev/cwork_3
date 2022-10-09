@@ -53,11 +53,9 @@ def search_for_posts(query):
     posts = get_posts_all()
     posts_query = []
     for post in posts:
-        if query not in post:
-            return "нет такого поста"
-        elif query in post:
+        if query in post:
             posts_query.append(post)
-        return posts_query
+    return posts_query
 
 
 def get_post_by_pk(pk):

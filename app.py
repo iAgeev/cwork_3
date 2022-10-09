@@ -24,8 +24,8 @@ def post_page(postid):
 
 @app.route('/search')
 def search_page():
-    s = request.args["s"]
-    found_posts = search_for_posts(s)
+    query = request.args["s"]
+    found_posts = search_for_posts(query)
     count_posts = len(found_posts)
     return render_template('search.html', count_posts=count_posts, posts=found_posts)
 
