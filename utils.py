@@ -19,10 +19,14 @@ def get_posts_by_user(user_name):
     если такого пользователя нет и пустой список, если у пользователя нет постов"""
     posts = get_posts_all()
     posts_user = []
-    for post in posts:
-        if post['poster_name'].lower() == user_name.lower():
-            posts_user.append(post)
-    return posts_user
+    try:
+        for post in posts:
+            if post['poster_name'].lower() == user_name.lower():
+                posts_user.append(post)
+        return posts_user
+    except ValueError:
+        return "Такого пользователя нет"
+
 
 
 def get_comments_by_post_id(post_id):
